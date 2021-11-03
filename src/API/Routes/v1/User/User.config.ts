@@ -1,4 +1,5 @@
 import { Application, Router } from "express";
+import { createUser } from "./User.controller";
 
 export default class UserRouter
 {
@@ -10,8 +11,8 @@ export default class UserRouter
         this.server = server;
         this.server.use(`/${version}/users`, this.router);
 
-        this.router.get("/", [
-
+        this.router.post("/", [
+            createUser
         ]);
 
     }
